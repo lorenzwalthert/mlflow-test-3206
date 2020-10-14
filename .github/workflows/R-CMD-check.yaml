@@ -77,7 +77,7 @@ jobs:
       - name: Fresh session
         run: |
           if (identical(.Platform$OS.type, "windows")) {
-            Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.10.0\\Scripts\\mlflow")
+            Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.10.0\\Scripts\\mlflow.exe")
           }
           library(mlflow)
           mlflow_start_run()
