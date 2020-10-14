@@ -37,6 +37,8 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
+      - uses: r-lib/actions/setup-pandoc@v1
+
       - name: Query dependencies
         run: |
           install.packages('remotes')
@@ -65,9 +67,11 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
 
-      - name: Reprex
+      - name: Check
         run: |
           library(mlflow)
           install_mlflow()
-          mlflow_log_param("param1", 5)
+          mlfow:::python_mlflow_bin()
+          #mlflow::mlflow_log_param("param1", 5)
+          mlflow_start_run()
         shell: Rscript {0}
