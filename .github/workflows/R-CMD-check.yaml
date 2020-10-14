@@ -69,7 +69,7 @@ jobs:
         run: |
           library(mlflow)
           install_mlflow()
-          mlfow:::python_mlflow_bin()
+          mlflow:::python_mlflow_bin()
           #mlflow::mlflow_log_param("param1", 5)
           mlflow_start_run()
         shell: Rscript {0}
