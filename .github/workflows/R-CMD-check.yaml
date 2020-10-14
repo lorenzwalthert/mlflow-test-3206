@@ -69,6 +69,7 @@ jobs:
         run: |
           library(mlflow)
           install_mlflow()
+          Sys.setenv(MLFLOW_BIN = "C:/Miniconda/envs/r-mlflow-1.10.0/Scripts/mlflow.exe")
           mlflow:::python_mlflow_bin()
           mlflow:::python_bin()
           dir(dirname(mlflow:::python_bin())) # is mlflow here?
