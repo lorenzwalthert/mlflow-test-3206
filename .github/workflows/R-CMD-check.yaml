@@ -71,6 +71,8 @@ jobs:
           install_mlflow()
           mlflow:::python_mlflow_bin()
           mlflow:::python_bin()
+          dir(dirname(mlflow:::python_bin())) # is mlflow here?
+          dir(file.path(dirname(mlflow:::python_bin(), "Scripts"))) # or here?
           #mlflow::mlflow_log_param("param1", 5)
           mlflow_start_run()
         shell: Rscript {0}
