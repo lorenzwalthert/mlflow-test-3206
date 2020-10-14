@@ -80,6 +80,17 @@ jobs:
             Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.10.0\\Scripts\\mlflow.exe")
           }
           library(mlflow)
-          mlflow_start_run()
+          # mlflow_start_run()
+          mlflow:::mlflow_client()
+          #
+          tracking_uri <- mlflow:::mlflow_get_tracking_uri()
+          tracking_uri
+          client <- mlflow:::new_mlflow_client(tracking_uri)
+          client
+          if (inherits(client, "mlflow_file_client")) {
+            cat("inherits is true\n")
+            mlflow:::mlflow_validate_server(client)
+          }
+
           mlflow::mlflow_log_param("param1", 5)
         shell: Rscript {0}
