@@ -65,9 +65,9 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
 
-      - name: Check
+      - name: Reprex
         run: |
           library(mlflow)
-          mlflow::install_mlflow()
-          mlflow::mlflow_log_param("param1", 5)
+          install_mlflow()
+          mlflow_log_param("param1", 5)
         shell: Rscript {0}
