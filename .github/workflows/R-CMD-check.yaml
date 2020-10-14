@@ -70,7 +70,7 @@ jobs:
           library(mlflow)
           install_mlflow()
           if (identical(.Platform$OS.type, "windows")) {
-            Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.10.0\\Scripts\\mlflow.exe")
+            Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.10.0\\Scripts\\mlflow")
           }
           mlflow:::python_mlflow_bin()
           mlflow:::python_bin()
