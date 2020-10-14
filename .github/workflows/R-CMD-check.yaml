@@ -69,11 +69,17 @@ jobs:
         run: |
           library(mlflow)
           install_mlflow()
-          Sys.setenv(MLFLOW_BIN = "C:/Miniconda/envs/r-mlflow-1.10.0/Scripts/mlflow.exe")
+          if (identical(.Platform$OS.type, "windows")) {
+            Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.10.0\\Scripts\\mlflow.exe")
+          }
           mlflow:::python_mlflow_bin()
           mlflow:::python_bin()
           dir(dirname(mlflow:::python_bin())) # is mlflow here?
           dir(file.path(dirname(mlflow:::python_bin()), "Scripts")) # or here?
-          #mlflow::mlflow_log_param("param1", 5)
+        shell: Rscript {0}
+      - name: Fresh session
+        run: |
+          library(mlflow)
           mlflow_start_run()
+          mlflow::mlflow_log_param("param1", 5)
         shell: Rscript {0}
