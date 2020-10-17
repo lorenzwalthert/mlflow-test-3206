@@ -90,7 +90,8 @@ jobs:
           tracking_uri_raw <- mlflow:::mlflow_get_tracking_uri()
           tracking_uri_raw
           tracking_uri <- mlflow:::new_mlflow_uri(tracking_uri_raw)
-          client <- mlflow:::new_mlflow_client(tracking_uri)
+          tracking_uri
+          client <- mlflow:::new_mlflow_client.mlflow_file(tracking_uri)
           client
           if (inherits(client, "mlflow_file_client")) {
             cat("inherits is true\n")
