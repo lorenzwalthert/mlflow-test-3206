@@ -74,6 +74,9 @@ jobs:
           dir(dirname(mlflow:::python_bin())) # is mlflow here?
           dir(file.path(dirname(mlflow:::python_bin()), "Scripts")) # or here?
         shell: Rscript {0}
+      - name: In Python
+        run: |
+          conda run -n r-mlflow-1.10.0 python -c 'import mlflow; print(mlflow.get_tracking_uri())'
       - name: Fresh session
         run: |
           if (identical(.Platform$OS.type, "windows")) {
