@@ -67,6 +67,9 @@ jobs:
 
       - name: Check
         run: |
+          if (identical(.Platform$OS.type, "windows")) {
+            Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.12.0\\Scripts\\mlflow.exe")
+          }
           library(mlflow)
           install_mlflow()
           mlflow::mlflow_log_param("param1", 5)
