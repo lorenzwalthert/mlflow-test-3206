@@ -83,6 +83,8 @@ jobs:
           if (identical(.Platform$OS.type, "windows")) {
             Sys.setenv(MLFLOW_BIN = "C:\\Miniconda\\envs\\r-mlflow-1.12.0\\Scripts\\mlflow.exe")
           }
+          remotes::install_github("lorenzwalthert/mlflow#5", subdir = "mlflow/R/mlflow")
+
           library(mlflow)
           # mlflow_start_run()
           # mlflow:::mlflow_client()
