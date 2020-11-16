@@ -10,7 +10,7 @@ on:
       - main
       - master
 
-name: basic
+name: debug
 
 jobs:
   R-CMD-check:

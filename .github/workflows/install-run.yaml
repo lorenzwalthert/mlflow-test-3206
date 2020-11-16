@@ -10,7 +10,7 @@ on:
       - main
       - master
 
-name: basic
+name: install-run
 
 jobs:
   R-CMD-check:
