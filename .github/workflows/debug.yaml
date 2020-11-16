@@ -97,8 +97,9 @@ jobs:
           client
           if (inherits(client, "mlflow_file_client")) {
             cat("inherits is true\n")
+            mlflow_rest("experiments", "list", client = client)
             mlflow:::mlflow_validate_server(client)
           }
-
+          mlflow::mlflow_client()
           mlflow::mlflow_log_param("param1", 5)
         shell: Rscript {0}
